@@ -1,15 +1,8 @@
-/**
-* Template Name: MyResume - v4.9.2
-* Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
+
 (function() {
   "use strict";
 
-  /**
-   * Easy selector helper function
-   */
+
   const select = (el, all = false) => {
     el = el.trim()
     if (all) {
@@ -267,3 +260,13 @@
   new PureCounter();
 
 })()
+
+
+
+function submit(){
+  console.log("details to be submited");
+}
+
+
+
+

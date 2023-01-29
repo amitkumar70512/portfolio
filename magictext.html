@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParaLettersDance</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    section {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      align-items: center;
+      min-height: 50vh;
+      min-width: 50vh;
+      overflow: hidden;
+      background-color: #ffffff;
+    }
+
+
+    p {
+      position: relative;
+      text-align: center;
+      color: #004b06;
+      font-size: 19px;
+      font-family: sans-serif;
+      margin: 20px;
+      max-width: 650px;
+    }
+
+    span {
+      display: inline-block;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+
+    <p class="text"></p>
+  </section>
+  <script src="assets/js/anime.min.js"></script>
+  <script>
+
+    const text = document.querySelector('.text');
+    const dexTxt = "Dish Networks";
+    const DefTxt = "Amit kumar, BMSCE";
+
+    var val = 500;
+
+    if (window.innerWidth > 600) {
+      text.innerText = dexTxt;
+      val = 500;
+    } else {
+      text.innerText = DefTxt;
+      val = 300;
+    }
+    text.innerHTML = text.textContent.replace(/\S/g, "<span>$&</span>");
+    function animate() {
+      const annimation = anime.timeline({ targets: ".text span", easing: "easeInOutExpo", loop: true, });
+      annimation.add({ rotate: function () { return anime.random(-360, 360) }, translateX: function () { return anime.random(0 - val, val) }, translateY: function () { return anime.random(0 - val, val) }, duration: 5000, delay: anime.stagger(20), }).add({ rotate: 0, translateX: 0, translateY: 0, duration: 5000, delay: anime.stagger(20), });
+    }
+
+    window.setTimeout(animate, 2000);
+  </script>
+
+
+</body>
+
+</html>
